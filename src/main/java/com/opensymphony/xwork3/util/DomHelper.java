@@ -16,7 +16,6 @@
 package com.opensymphony.xwork3.util;
 
 import com.opensymphony.xwork3.ObjectFactory;
-import com.opensymphony.xwork3.util.location.LocationAttributes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -110,12 +109,11 @@ public class DomHelper {
         DOMBuilder builder = new DOMBuilder();
 
         // Enhance the sax stream with location information
-        ContentHandler locationHandler = new LocationAttributes.Pipe(builder);
+        /*ContentHandler locationHandler = new LocationAttributes.Pipe(builder);*/
         
         try {
-            //TODO
-            parser.parse(inputSource, new StartHandler(locationHandler, dtdMappings));
-//            parser.parse(inputSource, new DefaultHandler());
+            /*parser.parse(inputSource, new StartHandler(locationHandler, dtdMappings));*/
+            parser.parse(inputSource, new StartHandler(builder, dtdMappings));
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
