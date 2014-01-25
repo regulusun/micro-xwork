@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE xwork PUBLIC
+        "-//Apache Struts//XWork 2.0//EN"
+        "http://struts.apache.org/dtds/xwork-2.0.dtd">
+
+<xwork>
+    <constant name="version" value="1.0"/>
+    <package name="base" namespace="base" abstract="true">
+        <interceptors>
+            <interceptor name="log" class="com.opensymphony.xwork3.interceptor.LoggingInterceptor"/>
+            <interceptor name="staticParameters" class="com.opensymphony.xwork3.interceptor.StaticParametersInterceptor"/>
+
+            <interceptor-stack name="defaultStack">
+                <interceptor-ref name="log"/>
+                <interceptor-ref name="staticParameters"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <action name="hello" class="cn.fund123.lion.transport.HelloAction">
+            <interceptor-ref name="defaultStack"/>
+            <param name="name">world</param>
+        </action>
+    </package>
+</xwork>

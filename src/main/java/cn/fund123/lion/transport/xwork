@@ -1,0 +1,5 @@
+移除reload功能
+移除查找action相关的代码 runtimeconfiguare类
+移除xwork注入框架
+移除actionResult
+移除locate相关代码
